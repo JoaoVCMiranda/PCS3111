@@ -1,5 +1,5 @@
 #include "Hotel.h"
-
+#include "QuartoDeLuxo.h"
 #include <iostream>
 
 Hotel::Hotel(int maximoQuartos, int maximoReservas)
@@ -90,4 +90,26 @@ bool Hotel::cancelarReserva(Reserva *r)
         }
     }
     return false;
+}
+
+QuartoDeLuxo** Hotel::getQuartosDeLuxo(int &quantidade){
+    quantidade = 0;
+    // vetor dinamico poit to poit 
+    QuartoDeLuxo** qL = new QuartoDeLuxo*[maximoQuartos];
+
+
+    for(int i=0;
+    i<this->getQuantidadeQuartos();
+    i++){
+    
+        QuartoDeLuxo* qT= dynamic_cast<QuartoDeLuxo*>(this->getQuartos()[i]);
+        
+        if(qT!=NULL){            
+            qL[quantidade++]=qT;
+        }
+    
+    }
+    if(quantidade==0)return nullptr;
+    
+    return qL;
 }

@@ -3,6 +3,7 @@
 
 #include "Reserva.h"
 #include "Quarto.h"
+#include "QuartoDeLuxo.h"
 
 class Hotel {
 private:
@@ -22,6 +23,7 @@ public:
     Reserva** getReservas();
     int getQuantidadeReservas();
     int getQuantidadeQuartos();
+    QuartoDeLuxo** getQuartosDeLuxo(int &quantidade);
 
     bool adicionarQuarto(Quarto* q);
     bool fazerReserva(Reserva* r);

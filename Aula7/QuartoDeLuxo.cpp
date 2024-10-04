@@ -1,11 +1,12 @@
 // Faça os includes necessários
 #include "QuartoDeLuxo.h"
+#include <iostream>
 
 using namespace std;
 
-QuartoDeLuxo::QuartoDeLuxo(int numeroDoQuarto, bool kingSize, bool sacada) {
-// Eis aqui o construtor
-
+QuartoDeLuxo::QuartoDeLuxo(int numeroDoQuarto, bool kingSize, bool sacada) : Quarto(numeroDoQuarto, 2, 1) {
+  this->kingSize = kingSize;
+  this->sacada = sacada;
 }
 
 QuartoDeLuxo::~QuartoDeLuxo() {
@@ -13,13 +14,20 @@ QuartoDeLuxo::~QuartoDeLuxo() {
 }
 
 double QuartoDeLuxo::getPrecoDiaria() {
-  //Implemente o novo cálculo da diária
+  double prBase = 300;
+  if(kingSize)prBase+=75;
+  if(sacada)prBase+=150;
+  return prBase;
+
 }
 
 double QuartoDeLuxo::getPrecoDiaria(double desconto) {
-  //Implemente o novo cálculo da diária com desconto
+  double prBase = 300;
+  if(kingSize)prBase+=75;
+  if(sacada)prBase+=150;
+  return prBase*(1-desconto);
 }
 
 void QuartoDeLuxo::imprimir() {
-  // Implemente o novo método imprimir
+  cout << "Quarto de Luxo "<< this->getNumeroDoQuarto() << ":  Diaria custa " << this->getPrecoDiaria() << " reais"<< endl;
 }

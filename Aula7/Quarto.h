@@ -15,8 +15,9 @@ private:
 
 public:
     Quarto(int numeroDoQuarto, int numeroDePessoas, int numeroDeCamas);
+    
+    virtual double getPrecoDiaria();
 
-    double getPrecoDiaria();
     int getNumeroDoQuarto();
     int getNumeroDePessoas();
     int getNumeroDeCamas();

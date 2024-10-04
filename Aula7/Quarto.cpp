@@ -30,10 +30,12 @@ double Quarto::getPrecoDiaria()
 {
     if (numeroDePessoas == 2)
     {
+        // Promoção instantanea
         return (double)100 * 1.5;
     }
     else
     {
+        // Valor normal
         return 100 * numeroDePessoas;
     }
 }
