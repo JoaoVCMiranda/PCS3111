@@ -2,6 +2,6 @@ void teste1();
 void teste2();
 
 int main() {
-  teste1(); // Substitua pelo teste que deseja testar
+  teste2(); 
   return 0;
 }

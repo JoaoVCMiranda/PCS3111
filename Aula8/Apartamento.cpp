@@ -4,7 +4,7 @@
 using namespace std;
 
 Apartamento::Apartamento(int numero, double area) : Acomodacao(numero){
-
+  this->area = area;
 }
 
 Apartamento::~Apartamento() {
@@ -14,9 +14,22 @@ Apartamento::~Apartamento() {
 double Apartamento::getArea() {
   return area;
 }
-double Apartamento::getPrecoDiaria(){
-  return 200 + 1.5*area;
+
+double Apartamento::getPrecoBase(){
+  return precoBase;
 }
+
+void Apartamento::setPrecoBase(double preco){
+  precoBase = preco;
+}
+
+double Apartamento::getPrecoDiaria(){
+  return precoBase + 1.5*area;
+}
+
 void Apartamento::imprimir(){
   cout << "Apartamento " << getNumero() << ":"<< getArea()<< " metros quadrados - diaria custa "<< getPrecoDiaria()<< " reais" <<""<<endl; 
 }
+
+double Apartamento::precoBase = 0.0;
+

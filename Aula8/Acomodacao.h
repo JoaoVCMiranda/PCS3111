@@ -6,6 +6,7 @@
 class Acomodacao{
 private:
   int numero;
+
 public:
   Acomodacao(int numero);
   virtual ~Acomodacao();
