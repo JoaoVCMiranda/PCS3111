@@ -1,15 +1,19 @@
 #ifndef APARTAMENTO_H
 #define APARTAMENTO_H
 
-// Faça os includes necessários
+#include "Acomodacao.h"
 
-class Apartamento
-{
+class Apartamento:public Acomodacao{
+private:
+  int numero;
+  double area;
 public:
   Apartamento(int numero, double area);
   ~Apartamento();
 
-  // Lembre de implementar os métodos não implementados
+  // Lembrar-se de nao instanciar os metodos da heranca
+  //int getNumero();
+
   double getArea();
   double getPrecoDiaria();
   void imprimir();

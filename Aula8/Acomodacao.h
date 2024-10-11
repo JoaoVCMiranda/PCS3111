@@ -3,8 +3,7 @@
 
 // Faça as modificações necessárias
 
-class Acomodacao
-{
+class Acomodacao{
 private:
   int numero;
 public:
@@ -12,7 +11,8 @@ public:
   virtual ~Acomodacao();
 
   int getNumero();
-  double getPrecoDiaria();
-  void imprimir();
+  // Pulo do gato
+  virtual double getPrecoDiaria() = 0 ;
+  virtual void imprimir() = 0 ;
 };
 #endif
