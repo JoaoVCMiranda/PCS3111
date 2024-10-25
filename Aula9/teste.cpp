@@ -1,6 +1,8 @@
 #include "Quarto.h"
 #include <stdexcept>
 #include <iostream>
+#include "SemEspaco.h"
+
 using namespace std;
 
 void teste1() {
@@ -19,7 +21,15 @@ void teste1() {
 }
 
 void teste2() {
-  // Altere conforme o enunciado
+	Quarto *q1 = new Quarto(1,2);
+	q1->imprimir();
+	try{
+	}catch(SemEspaco *e){
+		cout << "Erro:";
+		cout<< e->what() << endl;
+		delete e;
+	}
+	delete q1;
 }
 
 void teste3() {

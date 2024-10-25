@@ -2,6 +2,7 @@
 #include "Quarto.h"
 #include <iostream>
 #include <stdexcept>
+#include "SemEspaco.h"
 
 using namespace std;
 
@@ -20,7 +21,9 @@ Quarto::~Quarto() {}
 double Quarto::precoBase = 100.0;
 
 double Quarto::getPrecoDiaria(int numeroDePessoas) {
-  // Altere conforme o enunciado
+  if(numeroDePessoas>2*numeroDeCamas){
+	throw new SemEspaco("Numero de pessoas muito alto");
+  }
   return precoBase * numeroDePessoas;
 }
 
