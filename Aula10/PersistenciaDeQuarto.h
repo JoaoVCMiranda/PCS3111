@@ -8,8 +8,8 @@
 using namespace std;
 
 class PersistenciaDeQuarto {
-  // Faca as alteracoes necessarias
-
+private: 
+  string f;
 public:
   PersistenciaDeQuarto(string arquivo);
   virtual ~PersistenciaDeQuarto();
