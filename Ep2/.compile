@@ -1,0 +1,2 @@
+#/usr/bin/bash
+g++ $1.cpp -c $1.o
