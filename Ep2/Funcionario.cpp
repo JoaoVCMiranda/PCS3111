@@ -2,7 +2,7 @@
 
 Funcionario::Funcionario(int id, std::string nome):Usuario(id, nome){
 	// Devo criar um ponteiro para um vetor( de ponteiros)
-	//this->registros
+	this->registros = new std::vector<Registro*>;
 }
 
 Funcionario::Funcionario(int id, std::string nome, std::vector<Registro*>* registros):Usuario(id, nome){
@@ -10,6 +10,12 @@ Funcionario::Funcionario(int id, std::string nome, std::vector<Registro*>* regis
 }
 
 Funcionario::~Funcionario(){
+	/* Deletar os registros antes... Primeiro preciso conseguir fazer o loop
+	 * em todos os elementos do ponteiro para o vetor de ponteiros
+	for(const Registro* r : this->registros){
+		delete r;
+	}*/
+
 	delete this->registros;
 }
 int Funcionario::getHorasTrabalhadas(int mes, int ano){

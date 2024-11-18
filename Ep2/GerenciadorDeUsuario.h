@@ -5,6 +5,8 @@
 #include "Usuario.h"
 
 class GerenciadorDeUsuario{
+	private:
+		std::vector<Usuario*>* usuarios;
 	public:
 		GerenciadorDeUsuario();
 		GerenciadorDeUsuario(std::vector<Usuario*> *usuarios);

@@ -14,7 +14,6 @@ class Visitante:public Usuario{
 		virtual ~Visitante();
 		Data* getDataInicio();
 		Data* getDataFim(); 
-
 };
 
 #endif
