@@ -9,16 +9,16 @@ GerenciadorDeUsuario::GerenciadorDeUsuario(std::vector<Usuario*> * usuarios){
 	this->usuarios = usuarios;
 }
 GerenciadorDeUsuario::~GerenciadorDeUsuario(){
+	// será que é preciso deletar os usuários de dentro também?
 	delete this->usuarios;
 }
 
 void GerenciadorDeUsuario::adicionar(Usuario* u){
 	// entender como fazer o push back de pointers
-	this->usuarios.push_back(u);
+	this->usuarios->push_back(u);
 }
-/*
 Usuario* GerenciadorDeUsuario::getUsuario(int id){
-	for(auto &u: this->usuarios){
+	for(Usuario* u: *this->usuarios){
 		if(u->getId()==id){
 			return u;
 		}	
@@ -26,9 +26,6 @@ Usuario* GerenciadorDeUsuario::getUsuario(int id){
 	return nullptr;
 
 }
-*/
-Usuario* GerenciadorDeUsuario::getUsuario(int id){return nullptr;}
-
 std::vector<Usuario*>* GerenciadorDeUsuario::getUsuarios(){
 	return this->usuarios;
 }

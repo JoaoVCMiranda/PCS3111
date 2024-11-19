@@ -35,12 +35,35 @@ void forEachVectorPointer(){
 		std::cout << i <<std::endl; 
 	}
 	
+	//std::cout << v->size()<< std::endl;
+}
+void vectorOfPointers(){
+	std::vector<int*>* v = new std::vector<int*>;
+
+	int* a = new int(40); 
+	v->push_back(a);
+
+	int* b = new int(30); 
+	v->push_back(b);
+
+	int* c = new int(20); 
+	v->push_back(c);
+
+	int* d = new int(10); 
+	v->push_back(d);
+
+	std::cout << (*v)[0] <<std::endl; 
+	//std::cout << i <<std::endl; 
+	//std::cout << i <<std::endl; 
+	//std::cout << i <<std::endl; 
 }
 
 int main(){
 	std::cout<<"Hello World++"<<"\n";
 	//variable();
 	//pointer();
+	//vectorOfPointers();
+
 
 }
 
