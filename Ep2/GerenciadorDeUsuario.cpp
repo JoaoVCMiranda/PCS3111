@@ -1,4 +1,5 @@
 #include "GerenciadorDeUsuario.h"
+#include <stdexcept>
 
 GerenciadorDeUsuario::GerenciadorDeUsuario(){
 	// tenho que inicializar um ponteiro para vetor
@@ -9,12 +10,19 @@ GerenciadorDeUsuario::GerenciadorDeUsuario(std::vector<Usuario*> * usuarios){
 	this->usuarios = usuarios;
 }
 GerenciadorDeUsuario::~GerenciadorDeUsuario(){
-	// será que é preciso deletar os usuários de dentro também?
+	for(Usuario* u : *this->usuarios){
+		delete u;
+	}
 	delete this->usuarios;
 }
 
 void GerenciadorDeUsuario::adicionar(Usuario* u){
 	// entender como fazer o push back de pointers
+	for(Usuario* user : *this->usuarios){
+		if(user->getId()==u->getId()){
+			throw new std::invalid_argument("Não se pode adicionar usuário com id duplicado");
+		}
+	}
 	this->usuarios->push_back(u);
 }
 Usuario* GerenciadorDeUsuario::getUsuario(int id){

@@ -15,7 +15,11 @@ class Aluno: public Usuario{
 		virtual ~Aluno();
 		static void setHorarioFim(int hora, int minuto);
 		static int getHoraFim();
-		static int getMinutoFim();  	
+		static int getMinutoFim();
+		/* Cada aluno tem um horário de entrada que difere dos demais usuários
+		using Usuario::entrar;
+		bool entrar();	
+		*/
 };
 
 #endif

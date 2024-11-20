@@ -5,7 +5,7 @@
 #include "Data.h"
 
 class Usuario{
-	private:
+	protected:
 		int id;
 		std::string nome;
 	public:

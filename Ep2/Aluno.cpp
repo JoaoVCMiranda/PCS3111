@@ -17,7 +17,18 @@ int Aluno::getHoraFim(){
 }
 int Aluno::getMinutoFim(){
 	return Aluno::minuto;
-} 
+}
+/*
+bool Aluno::entrar(Data * d){
+	if(
+	   (d->getHora()<=Aluno::hora && d->getMinuto()<=Aluno::minuto) &&
+	   (Aluno::HORARIO_INICIO<=d->getHora())	
+	   ){
+
+	}
+
+}*/
+
 
 
 

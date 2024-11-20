@@ -2,6 +2,12 @@
 #include "Data.h"
 //#include "Registro.h"
 #include <vector>
+#include "PersistenciaDeUsuario.h"
+#include "Funcionario.h"
+#include "Vistante.h"
+#include "Aluno.h"
+#include "Usuario.h"
+
 
 void variable(){
 	Data d1(10,0,0,21,10,2024);
@@ -63,6 +69,7 @@ int main(){
 	//variable();
 	//pointer();
 	//vectorOfPointers();
+	Aluno * a = 
 
 
 }

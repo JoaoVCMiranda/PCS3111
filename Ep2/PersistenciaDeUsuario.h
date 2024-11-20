@@ -1,13 +1,16 @@
 #ifndef PERSISTENCIA_DE_USUARIO_H
-
 #define PERSISTENCIA_DE_USUARIO_H
+
+#include <string>
+#include <vector>
+#include "Usuario.h"
 
 class PersistenciaDeUsuario{
 	public:
 		PersistenciaDeUsuario();
 		virtual ~PersistenciaDeUsuario();
-		vector<Usuario*>* carregar(string arquivo);
-		void salvar(string arquivo, vector<Usuario*>* v); 
-}
+		std::vector<Usuario*>* carregar(std::string arquivo);
+		void salvar(std::string arquivo, std::vector<Usuario*>* v); 
+};
 
 #endif
