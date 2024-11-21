@@ -4,7 +4,7 @@
 #include <vector>
 #include "PersistenciaDeUsuario.h"
 #include "Funcionario.h"
-#include "Vistante.h"
+#include "Visitante.h"
 #include "Aluno.h"
 #include "Usuario.h"
 
@@ -68,9 +68,7 @@ int main(){
 	std::cout<<"Hello World++"<<"\n";
 	//variable();
 	//pointer();
-	//vectorOfPointers();
-	Aluno * a = 
-
-
+	//vectorOfPointers();	
+	return 0;
 }
 
