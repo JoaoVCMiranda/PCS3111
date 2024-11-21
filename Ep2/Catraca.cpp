@@ -10,7 +10,10 @@ Catraca::Catraca(GerenciadorDeUsuario *g){
 		throw new std::logic_error("Gerenciador não pode ser vazio");
 	}
 }
+// Não esquecer do destrutor
+Catraca::~Catraca(){
 
+}
 bool Catraca::entrar(int id, Data* d){
 	Usuario* u = this->g->getUsuario(id);
 	if(u!=nullptr){
