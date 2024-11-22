@@ -14,6 +14,11 @@ class Visitante:public Usuario{
 		virtual ~Visitante();
 		Data* getDataInicio();
 		Data* getDataFim(); 
+		
+		bool entrar(Data *d);
+		bool sair(Data *d);
+		bool registrarEntradaManual(Data *d);
+		bool registrarSaidaManual(Data* d);
 };
 
 #endif

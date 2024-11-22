@@ -1,5 +1,6 @@
 #include "Funcionario.h"
-
+#include "Entrada.h"
+#include "Saida.h"
 Funcionario::Funcionario(int id, std::string nome):Usuario(id, nome){
 	// Devo criar um ponteiro para um vetor( de ponteiros)
 	this->registros = new std::vector<Registro*>;
@@ -46,6 +47,103 @@ int Funcionario::getHorasTrabalhadas(int mes, int ano){
 }
 std::vector<Registro*>* Funcionario::getRegistros(){
 	return this->registros;
+}
+
+// ----------Métodos da classe mãe---------------- 
+// A data que está sendo inserida não pode ser menor que a última
+// O tipo do último registro deve ser diferente do atual
+bool Funcionario::entrar(Data* d){
+	// ------------ SE NÃO FOR VAZIO --------------
+	if(d==nullptr){
+		return false;
+		//throw new std::invalid_argument("Data não pode ser vazia");
+	}
+	if(this->registros->size()>0){
+	// ------------ NEM DO MESMO TIPO -------------
+		Entrada* e = dynamic_cast<Entrada*>(this->registros->back());
+		if(e!=nullptr){
+			return false;
+			//throw new std::logic_error("Registro não pode ser do mesmo tipo que o último");
+		}
+	// ------------ OU ANTERIOR A ÚLTIMA DATA ----
+		if(d->diferenca(this->registros->back()->getData()) <= 0){
+			return false;
+			//throw new std::logic_error("Data de registro não pode ser anterior a última");
+		}
+	}
+	Entrada* e= new Entrada(d);
+	this->registros->push_back(e);
+	return true;
+}
+bool Funcionario::sair(Data* d){
+	// ------------ SE NÃO FOR VAZIO --------------
+	if(d==nullptr){
+		return false;
+		//throw new std::invalid_argument("Data não pode ser vazia");
+	}
+	if(this->registros->size()>0){
+	// ------------ NEM DO MESMO TIPO -------------
+		Saida* s = dynamic_cast<Saida*>(this->registros->back());
+		if(s!=nullptr){
+			return false;
+			//throw new std::logic_error("Registro não pode ser do mesmo tipo que o último");
+		}
+	// ------------ OU ANTERIOR A ÚLTIMA DATA ----
+		if(d->diferenca(this->registros->back()->getData()) <= 0){
+			return false;
+			//throw new std::logic_error("Data de registro não pode ser anterior a última");
+		}
+	}
+	Saida* s= new Saida(d);
+	this->registros->push_back(s);
+	return true;
+
+}
+bool Funcionario::registrarEntradaManual(Data *d){
+	// ------------ SE NÃO FOR VAZIO --------------
+	if(d==nullptr){
+		return false;
+		//throw new std::invalid_argument("Data não pode ser vazia");
+	}
+	if(this->registros->size()>0){
+	// ------------ NEM DO MESMO TIPO -------------
+		Entrada* e = dynamic_cast<Entrada*>(this->registros->back());
+		if(e!=nullptr){
+			return false;
+			//throw new std::logic_error("Registro não pode ser do mesmo tipo que o último");
+		}
+	// ------------ OU ANTERIOR A ÚLTIMA DATA ----
+		if(d->diferenca(this->registros->back()->getData()) <= 0){
+			return false;
+			//throw new std::logic_error("Data de registro não pode ser anterior a última");
+		}
+	}
+	Entrada* e= new Entrada(d,true);
+	this->registros->push_back(e);
+	return true;
+}
+bool Funcionario::registrarSaidaManual(Data *d){
+	// ------------ SE NÃO FOR VAZIO --------------
+	if(d==nullptr){
+		return false;
+		//throw new std::invalid_argument("Data não pode ser vazia");
+	}
+	if(this->registros->size()>0){
+	// ------------ NEM DO MESMO TIPO -------------
+		Saida* s = dynamic_cast<Saida*>(this->registros->back());
+		if(s!=nullptr){
+			return false;
+			//throw new std::logic_error("Registro não pode ser do mesmo tipo que o último");
+		}
+	// ------------ OU ANTERIOR A ÚLTIMA DATA ----
+		if(d->diferenca(this->registros->back()->getData()) <= 0){
+			return false;
+			//throw new std::logic_error("Data de registro não pode ser anterior a última");
+		}
+	}
+	Saida* s= new Saida(d,true);
+	this->registros->push_back(s);
+	return true;
 }
 
 

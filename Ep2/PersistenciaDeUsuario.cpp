@@ -75,6 +75,7 @@ std::vector<Usuario*>* PersistenciaDeUsuario::carregar(std::string arquivo){
         throw new std::logic_error("Arquivo com formatacao inesperada");
     }
     fs.close();
+	return ans;
 }
 
 void PersistenciaDeUsuario::salvar(std::string arquivo, std::vector<Usuario*>* v){
@@ -93,14 +94,13 @@ void PersistenciaDeUsuario::salvar(std::string arquivo, std::vector<Usuario*>* v
 			fs << rs->size();
 
 			for (Registro* r : * rs){
-				
+
 				Entrada* e = dynamic_cast<Entrada*>(r);
-				Entrada* s = dynamic_cast<Saida*>(r);
 				
 				
 				if(e!=nullptr){
 					fs << "E " << std::endl;
-				}else if(s!=nullptr){
+				}else{
 					fs << "S " << std::endl;
 				}
 				Data * d = r->getData();
