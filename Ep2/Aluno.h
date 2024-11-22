@@ -20,6 +20,11 @@ class Aluno: public Usuario{
 		using Usuario::entrar;
 		bool entrar();	
 		*/
+		bool entrar(Data *d);
+		bool sair(Data *d);
+		bool registrarEntradaManual(Data *d);
+		bool registrarSaidaManual(Data* d);
+		
 };
 
 #endif

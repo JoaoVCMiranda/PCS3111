@@ -4,6 +4,7 @@
 #include "Funcionario.h"
 #include "Visitante.h"
 #include "Aluno.h"
+#include "Entrada.h"
 
 PersistenciaDeUsuario::PersistenciaDeUsuario(){
 // Não tem comportamente definido
@@ -27,16 +28,16 @@ void PersistenciaDeUsuario::salvar(std::string arquivo, std::vector<Usuario*>* v
 	fs.open(arquivo, std::ios_base::app);
 	// Para cada usuário tem um tipo de escrita
 	for(Usuario* u : * v){
-	// Será preciso fazer o type cast de cada um ?	
-		Funcionario* f  = (Funcionario) u ;
-		Visitante  * vt = (Visitante)   u ;
-		Aluno      * a  = (Aluno)       u ;
+		Funcionario* f  = std::dynamic_cast<Funcionario*>(u);
+		Visitante  * vt = std::dynamic_cast<Visitante*>(u) ;
+		Aluno      * a  = std::dynamic_cast<Aluno*>(u);
 		// Se for funcionário
 		if(f!=nullptr){
 			std::cout << "Funcionário"<< std::endl;
 			fs << f->getId() << " " << f->getNome() << std::endl;
 			std::vector<Registro*> * rs = f->getRegistros();
 			fs << rs-size();
+			/*
 			bool tipo = true;
 			for (Registro* r : * rs){
 				// Verificar se essa é uma gambiarra
@@ -46,6 +47,15 @@ void PersistenciaDeUsuario::salvar(std::string arquivo, std::vector<Usuario*>* v
 					fs << "S " << std::endl;
 				}
 				tipo = !tipo;
+
+			for (Registro* r : * rs){
+				Entrada* e = std::dynamic_cast<Entrada*>(r);
+				Entrada* s = std::dynamic_cast<Saida*>(r);
+				if(e!=nullptr){
+					fs << "E " << std::endl;
+				}else if(s!=nullptr){
+					fs << "S " << std::endl;
+				}
 				Data * d = r->getData();
 
 

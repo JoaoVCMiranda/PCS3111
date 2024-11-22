@@ -13,10 +13,11 @@ class Usuario{
 		virtual ~Usuario();
 		std::string getNome();
 		int getId();
-		bool entrar(Data *d);
-		bool sair(Data *d);
-		bool registrarEntradaManual(Data *d);
-		bool registrarSaidaManual(Data* d);
+		
+		virtual bool entrar(Data *d) = 0;
+		virtual bool sair(Data *d) = 0;
+		virtual bool registrarEntradaManual(Data *d) = 0;
+		virtual bool registrarSaidaManual(Data* d) = 0;
 };
 
 #endif
